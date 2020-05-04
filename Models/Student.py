@@ -3,9 +3,10 @@ from Models.TakenCourse import TakenCourse
 
 
 class Student(Person):
-    def __init__(self, id_number: int, name: str):
+    def __init__(self, id_number: int, name: str, department):
         super(Student, self).__init__(id_number, name)
         self._taken_courses = {}  # {CourseName: list of TakenCourse}
+        self. department = department
 
     def grade(self, course_name: str) -> float:
         """
