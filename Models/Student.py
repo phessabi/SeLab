@@ -21,9 +21,8 @@ class Student(Person):
         if course.name not in self._taken_courses:
             # check course restrictions
             self._taken_courses[course.name] = [TakenCourse(self, professor, course)]
-        elif self.on_semester:
+        elif  self.on_semester==False:
             raise AssertionError("Student : "+str(self.name)+" Has not enrolled in this semester.")
-
 
         elif course.department != self.department:
             raise AssertionError("Student's department is "+str(self.department)+" whereas course's department is "+str(course.department))
