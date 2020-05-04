@@ -20,6 +20,9 @@ class Student(Person):
         if course.name not in self._taken_courses:
             # check course restrictions
             self._taken_courses[course.name] = [TakenCourse(self, professor, course)]
+
+        elif course.department != self.department:
+            raise AssertionError("Student's department is "+str(self.department)+" whereas course's department is "+str(course.department))
         elif self._taken_courses[course.name][-1].grade is None:
             raise AssertionError("Course: " + str(course.name) + " is already taken by Student:" + str(self.name))
         elif self._taken_courses[course.name][-1].grade >= 10:
