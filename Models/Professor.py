@@ -9,14 +9,17 @@ class Professor(Person):
         self.project_list = []
         self.room_no = room_no
         self.lab_no = lab_no
-        self.salary = None
 
+    @property
+    def salary(self):
+        students_multiplier = 3000000
+        courses_multiplier = 3000000
+        projects_multiplier = 3000000
+        constant_salary = 5000000
 
-    def calculate_and_set_sallary(self):
-        salary = len(self.course_list)*3000000 + 5000000
-        self.salary =salary
-
-    def get_sallary(self):
-        self.calculate_and_set_sallary()
-        return self.salary
+        return \
+            len(self.student_list) * students_multiplier + \
+            len(self.course_list) * courses_multiplier + \
+            len(self.project_list) * projects_multiplier + \
+            constant_salary
 
