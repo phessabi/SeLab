@@ -7,6 +7,7 @@ class Student(Person):
         super(Student, self).__init__(id_number, name)
         self._taken_courses = {}  # {CourseName: list of TakenCourse}
         self. department = department
+        self.on_semester = True
 
     def grade(self, course_name: str) -> float:
         """
@@ -20,6 +21,9 @@ class Student(Person):
         if course.name not in self._taken_courses:
             # check course restrictions
             self._taken_courses[course.name] = [TakenCourse(self, professor, course)]
+        elif self.on_semester:
+            raise AssertionError("Student : "+str(self.name)+" Has not enrolled in this semester.")
+
 
         elif course.department != self.department:
             raise AssertionError("Student's department is "+str(self.department)+" whereas course's department is "+str(course.department))
@@ -37,3 +41,8 @@ class Student(Person):
             raise KeyError("Course:" + str(course_name) + " was not taken by Student:" + str(self.name))
         else:
             self._taken_courses[course_name][-1].grade = grade
+
+    def enroll_semester(self):
+        self.on_semester = True
+    def w_semester(self):
+        self.on_semester = False
