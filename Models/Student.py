@@ -38,4 +38,5 @@ class Student(Person):
     @property
     def average(self):
         grades = list(map(self.grade, self._taken_courses.keys()))
+        grades = list(filter(None, grades))
         return sum(grades)/len(grades)
