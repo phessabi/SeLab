@@ -34,3 +34,8 @@ class Student(Person):
             raise KeyError("Course:" + str(course_name) + " was not taken by Student:" + str(self.name))
         else:
             self._taken_courses[course_name][-1].grade = grade
+
+    @property
+    def average(self):
+        grades = list(map(self.grade, self._taken_courses.keys()))
+        return sum(grades)/len(grades)
