@@ -2,7 +2,7 @@ from Models.Person import Person
 
 
 class Professor(Person):
-    def __init__(self, id_number: int, name: str, room_no: int, lab_no: int):
+    def __init__(self, id_number: int, name: str, room_no: int, lab_no: int, department):
         super(Professor, self).__init__(id_number, name)
         self.course_list = []
         self.student_list = []
@@ -10,6 +10,7 @@ class Professor(Person):
         self.room_no = room_no
         self.lab_no = lab_no
         self.salary = None
+        self.department = department
 
 
     def calculate_and_set_sallary(self):

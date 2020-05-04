@@ -1,8 +1,9 @@
 class Course:
-    def __init__(self, id_number: int, name: str):
+    def __init__(self, id_number: int, name: str, department):
         self.id = id_number
         self.name = name
         self.state = Course.State()
+        self.department = department
 
     class State:
         def __init__(self):
