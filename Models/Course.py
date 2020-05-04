@@ -6,22 +6,22 @@ class Course:
 
     class State:
         def __init__(self):
-            self._state = 'not represented'
+            self._state = 'not presented'
 
-        def set_represented(self):
-            self._state = 'represented'
+        def set_presented(self):
+            self._state = 'presented'
 
         def set_running(self):
             self._state = 'running'
 
-        def set_not_represented(self):
-            self._state = 'not represented'
+        def set_not_presented(self):
+            self._state = 'not presented'
 
-        def is_represented(self):
-            return self._state == 'represented'
+        def is_presented(self):
+            return self._state == 'presented'
 
         def is_running(self):
             return self._state == 'running'
 
-        def is_not_represented(self):
-            return self._state == 'not represented'
+        def is_not_presented(self):
+            return self._state == 'not presented'
