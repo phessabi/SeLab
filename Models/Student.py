@@ -14,7 +14,7 @@ class Student(Person):
         """
         if course_name not in self._taken_courses:
             raise KeyError("course: " + str(course_name) + " was not taken by student:" + self.name)
-        return self._taken_courses[course_name][-1]
+        return self._taken_courses[course_name][-1].grade
 
     def enroll(self, course, professor):
         if course.name not in self._taken_courses:
