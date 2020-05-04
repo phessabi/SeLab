@@ -9,4 +9,14 @@ class Professor(Person):
         self.project_list = []
         self.room_no = room_no
         self.lab_no = lab_no
+        self.salary = None
+
+
+    def calculate_and_set_sallary(self):
+        salary = len(self.course_list)*3000000 + 5000000
+        self.salary =salary
+
+    def get_sallary(self):
+        self.calculate_and_set_sallary()
+        return self.salary
 
